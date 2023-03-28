@@ -1,15 +1,31 @@
-
 function validaCpf() {
     const campoCpf = document.querySelector('[data-inputCPF]')
     const span = document.querySelector('[data-resultadoDaValidação]')
     const cpf = campoCpf.value.replace(/\.|-/g, "")
 
-    if (validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
+    if (validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
         span.innerHTML = 'falso'
     }
     else {
-       span.innerHTML = 'verdadeiro'
+        span.innerHTML = 'verdadeiro'
     }
+}
+
+function validaNumerosRepetidos(cpf) {
+    const numerosRepetidos = [
+        '00000000000000',
+        '11111111111111',
+        '22222222222222',
+        '33333333333333',
+        '44444444444444',
+        '55555555555555',
+        '66666666666666',
+        '77777777777777',
+        '88888888888888',
+        '99999999999999'
+    ]
+
+    return numerosRepetidos.includes(cpf)
 }
 
 function validaPrimeiroDigito(cpf) {
@@ -35,7 +51,7 @@ function validaPrimeiroDigito(cpf) {
     if (soma == 10 || soma == 11) {
         soma = 0
     }
-    
+
     return soma != cpf[9]
 
 }
