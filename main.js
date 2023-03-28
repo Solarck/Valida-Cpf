@@ -3,15 +3,14 @@ function validaCpf() {
     const campoCpf = document.querySelector('[data-inputCPF]')
     const span = document.querySelector('[data-resultadoDaValidação]')
     const cpf = campoCpf.value.replace(/\.|-/g, "")
+
     if (validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
-        span.innerHTML = 'Falso'
+        span.innerHTML = 'falso'
     }
     else {
-       span.innerHTML = 'Verdadeiro'
+       span.innerHTML = 'verdadeiro'
     }
 }
-
-
 
 function validaPrimeiroDigito(cpf) {
     let soma = 0
@@ -36,6 +35,8 @@ function validaPrimeiroDigito(cpf) {
     if (soma == 10 || soma == 11) {
         soma = 0
     }
+    
+    return soma != cpf[9]
 
 }
 
