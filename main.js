@@ -5,9 +5,12 @@ function validaCpf() {
 
     if (validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
         span.innerHTML = 'falso'
+        console.log(cpf)
     }
+
     else {
         span.innerHTML = 'verdadeiro'
+        console.log(cpf)
     }
 }
 
