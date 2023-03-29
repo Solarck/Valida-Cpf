@@ -13,15 +13,18 @@
     <section class="main">
 
         <h1>Validador de CPF</h1>
-        <p>Digite um CPF e clique em "Validar CPF" para verificar se ele é válido ou falso</p>
+        <p>Digite um CPF e clique em "Verificar CPF" para verificar se ele é válido ou invalido</p>
 
-        <input type="text" class="input" data-inputCPF required minlength="11" maxlength="14"
-            pattern="\d{3}\.?\d{3}\.?\d{3}-?d{2}" placeholder=" Digite o CPF">
+        <input name="cpf" data-inputCPF class="input" maxlength="14" autocomplete="off" required 
+        placeholder=" Digite o CPF"  onclick="inputMascaraCpf()">
+
         <span class="resultadoDaValidação" data-resultadoDaValidação></span>
+        
         <button data-verificacao class="verificacao" onclick="validaCpf()">Verificar CPF</button>
     </section>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mascara-cpf.js"></script>
 </body>
 
 </html>

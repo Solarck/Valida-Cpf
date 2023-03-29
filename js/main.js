@@ -4,28 +4,26 @@ function validaCpf() {
     const cpf = campoCpf.value.replace(/\.|-/g, "")
 
     if (validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
-        span.innerHTML = 'falso'
-        console.log(cpf)
+        span.innerHTML = 'invalido'
     }
 
     else {
-        span.innerHTML = 'verdadeiro'
-        console.log(cpf)
+        span.innerHTML = 'Valido'
     }
 }
 
 function validaNumerosRepetidos(cpf) {
     const numerosRepetidos = [
-        '00000000000000',
-        '11111111111111',
-        '22222222222222',
-        '33333333333333',
-        '44444444444444',
-        '55555555555555',
-        '66666666666666',
-        '77777777777777',
-        '88888888888888',
-        '99999999999999'
+        '00000000000',
+        '11111111111',
+        '22222222222',
+        '33333333333',
+        '44444444444',
+        '55555555555',
+        '66666666666',
+        '77777777777',
+        '88888888888',
+        '99999999999'
     ]
 
     return numerosRepetidos.includes(cpf)
