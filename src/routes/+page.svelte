@@ -1,4 +1,32 @@
 <script lang="ts"> 
+    import validaPrimeiroDigito from "./utils/validaPrimeiroDigito";
+    import validaSegundoDigito from "./utils/validaSegundoDigito";
+    import validaNumerosRepetidos from "./utils/validaNumerosRepetidos";
+    
+    let input:any
+    function mascaraDeInput(){
+        const inputLength = input.value.length
+        if (inputLength == 3 || inputLength == 7) {
+            input.value += '.'
+        }
+        else if(inputLength == 11){
+            input.value += '-'
+        } 
+    }
+
+    let spanResultado:any
+    function validacao(){
+      
+        const cpf = input.value.replace(/\.|-/g, "")
+        if(validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
+            spanResultado.innerText = 'invalido'
+        }
+        else{
+            spanResultado.innerText = 'valido'
+        }
+        console.log(cpf)
+    }
+
 </script>
 
 <section class="main">
@@ -11,11 +39,13 @@
         autocomplete="off"
         required
         placeholder=" Digite o CPF"
+        bind:this={input}
+        on:keypress={mascaraDeInput}
     />
 
-    <span class="resultadoDaValidação" data-resultadoDaValidação />
+    <span class="resultadoDaValidação" bind:this={spanResultado}/>
 
-    <button class="verificacao">Verificar CPF</button>
+    <button class="verificacao" on:click={validacao}>Verificar CPF</button>
 </section>
 
 <style>
