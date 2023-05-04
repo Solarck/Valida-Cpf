@@ -1,7 +1,7 @@
 <script lang="ts"> 
-    import validaPrimeiroDigito from "./utils/validaPrimeiroDigito";
-    import validaSegundoDigito from "./utils/validaSegundoDigito";
-    import validaNumerosRepetidos from "./utils/validaNumerosRepetidos";
+    import validaPrimeiroDigito from "../utils/validaPrimeiroDigito";
+    import validaSegundoDigito from "../utils/validaSegundoDigito";
+    import validaNumerosRepetidos from "../utils/validaNumerosRepetidos";
     
     let input:any
     function mascaraDeInput(){
@@ -16,7 +16,6 @@
 
     let spanResultado:any
     function validacao(){
-      
         const cpf = input.value.replace(/\.|-/g, "")
         if(validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
             spanResultado.innerText = 'invalido'
